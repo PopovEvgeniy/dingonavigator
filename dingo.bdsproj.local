@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009.06.18 21:04:53.671.cpp,C:\Documents and Settings\Евгений\Мои документы\Borland Studio Projects\Unit1.cpp=D:\DINGO NAVIGATOR\Версия 1.0\source\dingocode.cpp</Transaction>
+    <Transaction>2009.06.18 21:04:53.671.h,C:\Documents and Settings\Евгений\Мои документы\Borland Studio Projects\Unit1.h=D:\DINGO NAVIGATOR\Версия 1.0\source\dingocode.h</Transaction>
+    <Transaction>2009.06.18 21:04:53.671.dfm,C:\Documents and Settings\Евгений\Мои документы\Borland Studio Projects\Unit1.dfm=D:\DINGO NAVIGATOR\Версия 1.0\source\dingocode.dfm</Transaction>
+    <Transaction>2009.06.18 21:04:58.437.bdsproj,C:\Documents and Settings\Евгений\Мои документы\Borland Studio Projects\Project1.bdsproj=D:\DINGO NAVIGATOR\Версия 1.0\source\dingo.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>
