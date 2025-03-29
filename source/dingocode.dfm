@@ -1,227 +1,175 @@
-object Form1: TForm1
+object BrowserWindow: TBrowserWindow
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 534
-  ClientWidth = 419
+  Caption = 'BrowserWindow'
+  ClientHeight = 552
+  ClientWidth = 597
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Menu = MainMenu1
+  Menu = BrowserMenu
   OldCreateOrder = False
-  OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 8
-    Top = 56
-    Width = 31
-    Height = 13
-    Caption = 'Label1'
-  end
-  object Image1: TImage
-    Left = 7
-    Top = 476
-    Width = 32
-    Height = 32
-    OnClick = Image1Click
-    OnMouseEnter = Image1MouseEnter
-    OnMouseLeave = Image1MouseLeave
-  end
-  object BitBtn1: TBitBtn
+  object OpenButton: TBitBtn
     Left = 7
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn1'
+    Caption = 'Open'
     TabOrder = 0
-    OnClick = BitBtn1Click
+    OnClick = OpenButtonClick
   end
-  object BitBtn2: TBitBtn
+  object SaveButton: TBitBtn
     Left = 45
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Save'
     TabOrder = 1
-    OnClick = BitBtn2Click
+    OnClick = SaveButtonClick
   end
-  object BitBtn3: TBitBtn
+  object PrintButton: TBitBtn
     Left = 83
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Print'
     TabOrder = 2
-    OnClick = BitBtn3Click
+    OnClick = PrintButtonClick
   end
-  object BitBtn4: TBitBtn
+  object BackButton: TBitBtn
     Left = 121
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Back'
     TabOrder = 3
-    OnClick = BitBtn4Click
+    OnClick = BackButtonClick
   end
-  object BitBtn5: TBitBtn
+  object NextButton: TBitBtn
     Left = 159
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Next'
     TabOrder = 4
-    OnClick = BitBtn5Click
+    OnClick = NextButtonClick
   end
-  object BitBtn6: TBitBtn
+  object StopButton: TBitBtn
     Left = 197
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Stop'
     TabOrder = 5
-    OnClick = BitBtn6Click
+    OnClick = StopButtonClick
   end
-  object BitBtn7: TBitBtn
+  object HomeButton: TBitBtn
     Left = 235
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Home'
     TabOrder = 6
-    OnClick = BitBtn7Click
+    OnClick = HomeButtonClick
   end
-  object BitBtn8: TBitBtn
+  object HelpButton: TBitBtn
     Left = 351
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Help'
     TabOrder = 7
-    OnClick = BitBtn8Click
+    OnClick = HelpButtonClick
   end
-  object BitBtn9: TBitBtn
-    Left = 367
+  object GoButton: TBitBtn
+    Left = 550
     Top = 48
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
+    Caption = 'Go'
     TabOrder = 8
-    OnClick = BitBtn9Click
+    OnClick = GoButtonClick
   end
-  object ProgressBar1: TProgressBar
-    Left = 45
-    Top = 492
-    Width = 366
+  object ProgressIndicator: TProgressBar
+    Left = 8
+    Top = 528
+    Width = 581
     Height = 16
     TabOrder = 9
   end
-  object ComboBox1: TComboBox
-    Left = 85
-    Top = 53
-    Width = 260
+  object URLBox: TComboBox
+    Left = 8
+    Top = 59
+    Width = 536
     Height = 21
     ItemHeight = 13
     TabOrder = 10
-    Text = 'ComboBox1'
-    OnKeyPress = ComboBox1KeyPress
-    OnSelect = ComboBox1Select
+    Text = 'URL'
+    OnKeyPress = URLBoxKeyPress
+    OnSelect = URLBoxSelect
   end
-  object PageControl1: TPageControl
-    Left = 8
-    Top = 86
-    Width = 403
-    Height = 339
-    ActivePage = TabSheet2
-    TabOrder = 11
-    OnChange = PageControl1Change
-    object TabSheet1: TTabSheet
-      Caption = 'TabSheet1'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
-      object WebBrowser1: TWebBrowser
-        Left = -4
-        Top = 3
-        Width = 407
-        Height = 305
-        TabOrder = 0
-        OnProgressChange = WebBrowser1ProgressChange
-        OnDownloadBegin = WebBrowser1DownloadBegin
-        OnDownloadComplete = WebBrowser1DownloadComplete
-        OnTitleChange = WebBrowser1TitleChange
-        OnNewWindow2 = WebBrowser1NewWindow2
-        OnNavigateComplete2 = WebBrowser1NavigateComplete2
-        OnDocumentComplete = WebBrowser1DocumentComplete
-        OnNavigateError = WebBrowser1NavigateError
-        ControlData = {
-          4C000000112A0000861F00000000000000000000000000000000000000000000
-          000000004C000000000000000000000001000000E0D057007335CF11AE690800
-          2B2E126208000000000000004C0000000114020000000000C000000000000046
-          8000000000000000000000000000000000000000000000000000000000000000
-          00000000000000000100000000000000000000000000000000000000}
-      end
-    end
-    object TabSheet2: TTabSheet
-      Caption = 'TabSheet2'
-      ImageIndex = 1
-      object WebBrowser2: TWebBrowser
-        Left = 3
-        Top = 3
-        Width = 389
-        Height = 310
-        TabOrder = 0
-        OnDocumentComplete = WebBrowser2DocumentComplete
-        ControlData = {
-          4C000000342800000A2000000000000000000000000000000000000000000000
-          000000004C000000000000000000000001000000E0D057007335CF11AE690800
-          2B2E126208000000000000004C0000000114020000000000C000000000000046
-          8000000000000000000000000000000000000000000000000000000000000000
-          00000000000000000100000000000000000000000000000000000000}
-      end
-    end
-  end
-  object BitBtn10: TBitBtn
+  object SearchButton: TBitBtn
     Left = 275
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn2'
-    TabOrder = 12
-    OnClick = BitBtn10Click
+    Caption = 'Search'
+    TabOrder = 11
+    OnClick = SearchButtonClick
   end
-  object CheckBox1: TCheckBox
-    Left = 45
-    Top = 469
-    Width = 284
-    Height = 17
-    Caption = 'Open  a pages in new windows'
-    TabOrder = 13
-  end
-  object BitBtn11: TBitBtn
+  object FontButton: TBitBtn
     Left = 313
     Top = 8
     Width = 32
     Height = 32
-    Caption = 'BitBtn11'
-    TabOrder = 14
-    OnClick = BitBtn11Click
+    Caption = 'Font'
+    TabOrder = 12
+    OnClick = FontButtonClick
+  end
+  object WorkSpace: TPageControl
+    Left = 8
+    Top = 86
+    Width = 581
+    Height = 436
+    ActivePage = CurrentSpace
+    TabOrder = 13
+    object CurrentSpace: TTabSheet
+      Caption = 'Current space'
+      object WebNavigator: TWebBrowser
+        Left = -4
+        Top = 3
+        Width = 574
+        Height = 402
+        TabOrder = 0
+        OnProgressChange = WebNavigatorProgressChange
+        OnTitleChange = WebNavigatorTitleChange
+        OnNewWindow2 = WebNavigatorNewWindow2
+        OnNavigateComplete2 = WebNavigatorNavigateComplete2
+        OnDocumentComplete = WebNavigatorDocumentComplete
+        ControlData = {
+          4C000000533B00008C2900000000000000000000000000000000000000000000
+          000000004C000000000000000000000001000000E0D057007335CF11AE690800
+          2B2E126208000000000000004C0000000114020000000000C000000000000046
+          8000000000000000000000000000000000000000000000000000000000000000
+          00000000000000000100000000000000000000000000000000000000}
+      end
+    end
   end
   object OpenDialog1: TOpenDialog
-    OnCanClose = OpenDialog1CanClose
-    Left = 336
-    Top = 432
+    Left = 520
+    Top = 8
   end
-  object MainMenu1: TMainMenu
-    Left = 376
-    Top = 432
+  object BrowserMenu: TMainMenu
+    Left = 560
+    Top = 8
     object Page1: TMenuItem
       Caption = 'Page'
       object Open1: TMenuItem
@@ -238,18 +186,14 @@ object Form1: TForm1
           Caption = 'Preview'
           OnClick = Preview1Click
         end
-        object Printersetting1: TMenuItem
-          Caption = 'Printer setting'
-          OnClick = Printersetting1Click
+        object Pagesettings1: TMenuItem
+          Caption = 'The page settings'
+          OnClick = Pagesettings1Click
         end
         object Print2: TMenuItem
           Caption = 'Print'
           OnClick = Print2Click
         end
-      end
-      object Properties1: TMenuItem
-        Caption = 'Properties'
-        OnClick = Properties1Click
       end
     end
     object Navigate1: TMenuItem
@@ -270,58 +214,28 @@ object Form1: TForm1
         Caption = 'Home'
         OnClick = Home1Click
       end
+      object Refreshapage1: TMenuItem
+        Caption = 'Refresh'
+        OnClick = Refreshapage1Click
+      end
     end
     object Search1: TMenuItem
       Caption = 'Search'
       object InInternet1: TMenuItem
-        Caption = 'In Internet'
+        Caption = 'To Internet'
         OnClick = InInternet1Click
       end
       object Oncurrentpage1: TMenuItem
-        Caption = 'On current page'
+        Caption = 'On the current page'
         OnClick = Oncurrentpage1Click
       end
     end
     object Help1: TMenuItem
-      Caption = 'Browser'
-      object Clearhistory: TMenuItem
-        Caption = 'Clear history'
-        OnClick = ClearhistoryClick
-      end
-      object Setting1: TMenuItem
-        Caption = 'Setting'
-        OnClick = Setting1Click
-      end
+      Caption = 'Help'
       object Showhelp: TMenuItem
-        Caption = 'Show help'
+        Caption = 'Show'
         OnClick = ShowhelpClick
       end
-    end
-  end
-  object PopupMenu1: TPopupMenu
-    OnPopup = PopupMenu1Popup
-    Left = 296
-    Top = 432
-    object Createnewtab1: TMenuItem
-      Caption = 'Create new tab'
-      OnClick = Createnewtab1Click
-    end
-    object Closeactivetab1: TMenuItem
-      Caption = 'Close active tab'
-      OnClick = Closeactivetab1Click
-    end
-  end
-  object ActionList1: TActionList
-    Left = 256
-    Top = 432
-    object FileRun1: TFileRun
-      Category = 'File'
-      Browse = False
-      BrowseDlg.Title = 'Run'
-      Caption = '&Run...'
-      Hint = 'Run|Runs an application'
-      Operation = 'open'
-      ShowCmd = scShowNormal
     end
   end
 end
