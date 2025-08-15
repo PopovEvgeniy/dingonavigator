@@ -2,7 +2,7 @@ object BrowserWindow: TBrowserWindow
   Left = 0
   Top = 0
   Caption = 'BrowserWindow'
-  ClientHeight = 552
+  ClientHeight = 572
   ClientWidth = 597
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -170,71 +170,71 @@ object BrowserWindow: TBrowserWindow
   object BrowserMenu: TMainMenu
     Left = 560
     Top = 8
-    object Page1: TMenuItem
+    object PageMenu: TMenuItem
       Caption = 'Page'
-      object Open1: TMenuItem
+      object OpenMenuItem: TMenuItem
         Caption = 'Open'
-        OnClick = Open1Click
+        OnClick = OpenMenuItemClick
       end
-      object Save1: TMenuItem
+      object SaveMenuItem: TMenuItem
         Caption = 'Save'
-        OnClick = Save1Click
+        OnClick = SaveMenuItemClick
       end
-      object Print1: TMenuItem
+      object PrintMenu: TMenuItem
         Caption = 'Print'
-        object Preview1: TMenuItem
+        object PreviewMenuItem: TMenuItem
           Caption = 'Preview'
-          OnClick = Preview1Click
+          OnClick = PreviewMenuItemClick
         end
-        object Pagesettings1: TMenuItem
+        object PagesettingsMenuItem: TMenuItem
           Caption = 'The page settings'
-          OnClick = Pagesettings1Click
+          OnClick = PagesettingsMenuItemClick
         end
-        object Print2: TMenuItem
+        object PrintMenuItem: TMenuItem
           Caption = 'Print'
-          OnClick = Print2Click
+          OnClick = PrintMenuItemClick
         end
       end
     end
-    object Navigate1: TMenuItem
+    object NavigateMenu: TMenuItem
       Caption = 'Navigate'
-      object Back1: TMenuItem
+      object BackMenuItem: TMenuItem
         Caption = 'Back'
-        OnClick = Back1Click
+        OnClick = BackMenuItemClick
       end
-      object Next1: TMenuItem
+      object NextMenuItem: TMenuItem
         Caption = 'Next'
-        OnClick = Next1Click
+        OnClick = NextMenuItemClick
       end
-      object Stop1: TMenuItem
+      object StopMenuItem: TMenuItem
         Caption = 'Stop'
-        OnClick = Stop1Click
+        OnClick = StopMenuItemClick
       end
-      object Home1: TMenuItem
+      object HomeMenuItem: TMenuItem
         Caption = 'Home'
-        OnClick = Home1Click
+        OnClick = HomeMenuItemClick
       end
-      object Refreshapage1: TMenuItem
+      object RefreshMenuItem: TMenuItem
         Caption = 'Refresh'
-        OnClick = Refreshapage1Click
+        OnClick = RefreshMenuItemClick
       end
     end
-    object Search1: TMenuItem
+    object SearchMenu: TMenuItem
       Caption = 'Search'
-      object InInternet1: TMenuItem
+      object InInternetMenuItem: TMenuItem
         Caption = 'To Internet'
-        OnClick = InInternet1Click
+        OnClick = InInternetMenuItemClick
       end
-      object Oncurrentpage1: TMenuItem
+      object OncurrentpageMenuItem: TMenuItem
         Caption = 'On the current page'
-        OnClick = Oncurrentpage1Click
+        OnClick = OncurrentpageMenuItemClick
       end
     end
-    object Help1: TMenuItem
+    object HelpMenu: TMenuItem
       Caption = 'Help'
-      object Showhelp: TMenuItem
+      object ShowMenuItem: TMenuItem
         Caption = 'Show'
-        OnClick = ShowhelpClick
+        OnClick = ShowMenuItemClick
       end
     end
   end

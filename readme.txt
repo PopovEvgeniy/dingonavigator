@@ -13,11 +13,7 @@ Dingo Navigator is a simple web browser with an intuitive user interface. It use
 
 License
 
-This program is distributed under GNU GENERAL PUBLIC LICENSE.
-
-Contact
-
-You can send me a letter at tuzik87@inbox.ru.
+This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
 Source code
 

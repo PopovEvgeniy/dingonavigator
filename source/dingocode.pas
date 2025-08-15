@@ -18,31 +18,31 @@ type
     HelpButton: TBitBtn;
     GoButton: TBitBtn;
     BrowserMenu: TMainMenu;
-    Page1: TMenuItem;
-    Open1: TMenuItem;
-    Save1: TMenuItem;
-    Print1: TMenuItem;
-    Navigate1: TMenuItem;
-    Back1: TMenuItem;
-    Next1: TMenuItem;
-    Stop1: TMenuItem;
-    Home1: TMenuItem;
+    PageMenu: TMenuItem;
+    OpenMenuItem: TMenuItem;
+    SaveMenuItem: TMenuItem;
+    PrintMenu: TMenuItem;
+    NavigateMenu: TMenuItem;
+    BackMenuItem: TMenuItem;
+    NextMenuItem: TMenuItem;
+    StopMenuItem: TMenuItem;
+    HomeMenuItem: TMenuItem;
     ProgressIndicator: TProgressBar;
     URLBox: TComboBox;
     SearchButton: TBitBtn;
-    Search1: TMenuItem;
-    InInternet1: TMenuItem;
-    Oncurrentpage1: TMenuItem;
-    Help1: TMenuItem;
-    Preview1: TMenuItem;
-    Pagesettings1: TMenuItem;
-    Print2: TMenuItem;
-    Showhelp: TMenuItem;
+    SearchMenu: TMenuItem;
+    InInternetMenuItem: TMenuItem;
+    OncurrentpageMenuItem: TMenuItem;
+    HelpMenu: TMenuItem;
+    PreviewMenuItem: TMenuItem;
+    PagesettingsMenuItem: TMenuItem;
+    PrintMenuItem: TMenuItem;
+    ShowMenuItem: TMenuItem;
     FontButton: TBitBtn;
     WorkSpace: TPageControl;
     CurrentSpace: TTabSheet;
     WebNavigator: TWebBrowser;
-    Refreshapage1: TMenuItem;
+    RefreshMenuItem: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure OpenButtonClick(Sender: TObject);
@@ -56,12 +56,12 @@ type
     procedure GoButtonClick(Sender: TObject);
     procedure SearchButtonClick(Sender: TObject);
     procedure FontButtonClick(Sender: TObject);
-    procedure Open1Click(Sender: TObject);
-    procedure Save1Click(Sender: TObject);
-    procedure Back1Click(Sender: TObject);
-    procedure Next1Click(Sender: TObject);
-    procedure Stop1Click(Sender: TObject);
-    procedure Home1Click(Sender: TObject);
+    procedure OpenMenuItemClick(Sender: TObject);
+    procedure SaveMenuItemClick(Sender: TObject);
+    procedure BackMenuItemClick(Sender: TObject);
+    procedure NextMenuItemClick(Sender: TObject);
+    procedure StopMenuItemClick(Sender: TObject);
+    procedure HomeMenuItemClick(Sender: TObject);
     procedure WebNavigatorDocumentComplete(ASender: TObject;
       const pDisp: IDispatch; var URL: OleVariant);
     procedure WebNavigatorTitleChange(ASender: TObject; const Text: WideString);
@@ -73,13 +73,13 @@ type
       ProgressMax: Integer);
     procedure URLBoxKeyPress(Sender: TObject; var Key: Char);
     procedure URLBoxSelect(Sender: TObject);
-    procedure InInternet1Click(Sender: TObject);
-    procedure Oncurrentpage1Click(Sender: TObject);
-    procedure Preview1Click(Sender: TObject);
-    procedure Pagesettings1Click(Sender: TObject);
-    procedure Print2Click(Sender: TObject);
-    procedure ShowhelpClick(Sender: TObject);
-    procedure Refreshapage1Click(Sender: TObject);
+    procedure InInternetMenuItemClick(Sender: TObject);
+    procedure OncurrentpageMenuItemClick(Sender: TObject);
+    procedure PreviewMenuItemClick(Sender: TObject);
+    procedure PagesettingsMenuItemClick(Sender: TObject);
+    procedure PrintMenuItemClick(Sender: TObject);
+    procedure ShowMenuItemClick(Sender: TObject);
+    procedure RefreshMenuItemClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   end;
 
@@ -96,11 +96,9 @@ begin
 end;
 
 procedure do_action(var Browser:TWebBrowser;const Action: Cardinal);
-var Argument: OleVariant;
 begin
-  Argument:=0;
   try
-   Browser.ControlInterface.ExecWB(Action,OLECMDEXECOPT_PROMPTUSER,Argument,Argument);
+   Browser.ExecWB(Action,OLECMDEXECOPT_PROMPTUSER);
   except
    ;
   end;
@@ -127,7 +125,7 @@ end;
 procedure windows_setup();
 begin
   BrowserWindow.Font.Assign(Screen.MenuFont);
-  BrowserWindow.Caption:='Dingo Navigator 2.9.4';
+  BrowserWindow.Caption:='Dingo Navigator 2.9.6';
   Application.Title:='Dingo Navigator';
 end;
 
@@ -269,7 +267,6 @@ end;
 
 procedure set_zoom(var Browser:TWebBrowser);
 var Zoom: OleVariant;
-var Argument: OleVariant;
 begin
   Inc(Scale,1);
   if Scale>4 then
@@ -277,10 +274,9 @@ begin
    Scale:=0;
   end;
   Zoom:=Scale;
-  Argument:=0;
   if Browser.LocationURL<> '' then
   begin
-   Browser.ControlInterface.ExecWB(OLECMDID_ZOOM,OLECMDEXECOPT_PROMPTUSER,Zoom,Argument);
+   Browser.ExecWB(OLECMDID_ZOOM,OLECMDEXECOPT_DODEFAULT,Zoom);
   end;
 
 end;
@@ -388,32 +384,32 @@ begin
   BrowserWindow.WorkSpace.ActivePage.SetFocus();
 end;
 
-procedure TBrowserWindow.Open1Click(Sender: TObject);
+procedure TBrowserWindow.OpenMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.OpenButton.Click();
 end;
 
-procedure TBrowserWindow.Save1Click(Sender: TObject);
+procedure TBrowserWindow.SaveMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.SaveButton.Click();
 end;
 
-procedure TBrowserWindow.Back1Click(Sender: TObject);
+procedure TBrowserWindow.BackMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.BackButton.Click();
 end;
 
-procedure TBrowserWindow.Next1Click(Sender: TObject);
+procedure TBrowserWindow.NextMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.NextButton.Click();
 end;
 
-procedure TBrowserWindow.Stop1Click(Sender: TObject);
+procedure TBrowserWindow.StopMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.StopButton.Click();
 end;
 
-procedure TBrowserWindow.Home1Click(Sender: TObject);
+procedure TBrowserWindow.HomeMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.HomeButton.Click();
 end;
@@ -467,32 +463,32 @@ begin
  BrowserWindow.WebNavigator.Navigate(BrowserWindow.URLBox.Text);
 end;
 
-procedure TBrowserWindow.InInternet1Click(Sender: TObject);
+procedure TBrowserWindow.InInternetMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.SearchButton.Click();
 end;
 
-procedure TBrowserWindow.Oncurrentpage1Click(Sender: TObject);
+procedure TBrowserWindow.OncurrentpageMenuItemClick(Sender: TObject);
 begin
   do_action(BrowserWindow.WebNavigator,OLECMDID_FIND);
 end;
 
-procedure TBrowserWindow.Preview1Click(Sender: TObject);
+procedure TBrowserWindow.PreviewMenuItemClick(Sender: TObject);
 begin
   do_action(BrowserWindow.WebNavigator,OLECMDID_PRINTPREVIEW);
 end;
 
-procedure TBrowserWindow.Pagesettings1Click(Sender: TObject);
+procedure TBrowserWindow.PagesettingsMenuItemClick(Sender: TObject);
 begin
   do_action(BrowserWindow.WebNavigator,OLECMDID_PAGESETUP);
 end;
 
-procedure TBrowserWindow.Print2Click(Sender: TObject);
+procedure TBrowserWindow.PrintMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.PrintButton.Click();
 end;
 
-procedure TBrowserWindow.Refreshapage1Click(Sender: TObject);
+procedure TBrowserWindow.RefreshMenuItemClick(Sender: TObject);
 begin
  if BrowserWindow.WebNavigator.LocationURL<> '' then
  begin
@@ -501,7 +497,7 @@ begin
 
 end;
 
-procedure TBrowserWindow.ShowhelpClick(Sender: TObject);
+procedure TBrowserWindow.ShowMenuItemClick(Sender: TObject);
 begin
   BrowserWindow.HelpButton.Click();
 end;
