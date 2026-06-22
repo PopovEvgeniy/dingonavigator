@@ -4,8 +4,8 @@
 
 System requirements.
 
-Windows 98 or higher
-Internet connection
+Windows 98 or higher.
+Internet connection.
 
 The program description.
 
