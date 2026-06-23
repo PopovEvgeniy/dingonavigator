@@ -2,7 +2,7 @@ object BrowserWindow: TBrowserWindow
   Left = 0
   Top = 0
   Caption = 'BrowserWindow'
-  ClientHeight = 572
+  ClientHeight = 592
   ClientWidth = 597
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

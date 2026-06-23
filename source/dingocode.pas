@@ -8,7 +8,7 @@
 interface
 
 uses Windows, SysUtils, Graphics, Controls, Forms, Dialogs, StdCtrls,
-Buttons, OleCtrls, SHDocVw, ComCtrls, Menus, ExtCtrls, ActnList, ExtActns, Classes;
+Buttons, OleCtrls, SHDocVw, ComCtrls, Menus, Classes;
 
 type
     TBrowserWindow = class(TForm)
@@ -148,7 +148,7 @@ end;
 
 procedure TBrowserWindow.prepare_browser();
 begin
-  Self.WebNavigator.Offline:=True;
+  Self.WebNavigator.Offline:=False;
   Self.WebNavigator.Silent:=False;
   Self.WebNavigator.RegisterAsBrowser:=True;
   Self.WebNavigator.RegisterAsDropTarget:=True;
@@ -157,7 +157,7 @@ end;
 procedure TBrowserWindow.window_setup();
 begin
   Self.Font.Assign(Screen.MenuFont);
-  Self.Caption:='Dingo Navigator 2.9.9';
+  Self.Caption:='Dingo Navigator 3.0.3';
   Application.Title:='Dingo Navigator';
 end;
 
@@ -235,19 +235,19 @@ end;
 
 procedure TBrowserWindow.set_shortcut();
 begin
-  Self.BrowserMenu.Items[0].Items[0].ShortCut:=TextToShortCut('Shift+O');
-  Self.BrowserMenu.Items[0].Items[1].ShortCut:=TextToShortCut('Shift+S');
-  Self.BrowserMenu.Items[0].Items[2].Items[0].ShortCut:=TextToShortCut('Shift+V');
-  Self.BrowserMenu.Items[0].Items[2].Items[1].ShortCut:=TextToShortCut('Shift+C');
-  Self.BrowserMenu.Items[0].Items[2].Items[2].ShortCut:=TextToShortCut('Shift+P');
-  Self.BrowserMenu.Items[1].Items[0].ShortCut:=TextToShortCut('Alt+B');
-  Self.BrowserMenu.Items[1].Items[1].ShortCut:=TextToShortCut('Alt+N');
-  Self.BrowserMenu.Items[1].Items[2].ShortCut:=TextToShortCut('Alt+S');
-  Self.BrowserMenu.Items[1].Items[3].ShortCut:=TextToShortCut('Alt+H');
-  Self.BrowserMenu.Items[1].Items[4].ShortCut:=TextToShortCut('Alt+R');
-  Self.BrowserMenu.Items[2].Items[0].ShortCut:=TextToShortCut('Shift+F');
-  Self.BrowserMenu.Items[2].Items[1].ShortCut:=TextToShortCut('Alt+F');
-  Self.BrowserMenu.Items[3].Items[0].ShortCut:=TextToShortCut('F1');
+  Self.OpenMenuItem.ShortCut:=TextToShortCut('Shift+O');
+  Self.SaveMenuItem.ShortCut:=TextToShortCut('Shift+S');
+  Self.PreviewMenuItem.ShortCut:=TextToShortCut('Shift+V');
+  Self.PagesettingsMenuItem.ShortCut:=TextToShortCut('Shift+C');
+  Self.PrintMenuItem.ShortCut:=TextToShortCut('Shift+P');
+  Self.BackMenuItem.ShortCut:=TextToShortCut('Alt+B');
+  Self.NextMenuItem.ShortCut:=TextToShortCut('Alt+N');
+  Self.StopMenuItem.ShortCut:=TextToShortCut('Alt+S');
+  Self.HomeMenuItem.ShortCut:=TextToShortCut('Alt+H');
+  Self.RefreshMenuItem.ShortCut:=TextToShortCut('Alt+R');
+  Self.InInternetMenuItem.ShortCut:=TextToShortCut('Shift+F');
+  Self.OncurrentpageMenuItem.ShortCut:=TextToShortCut('Alt+F');
+  Self.ShowMenuItem.ShortCut:=TextToShortCut('F1');
 end;
 
 procedure TBrowserWindow.language_setup();
@@ -265,24 +265,24 @@ begin
   Self.FontButton.Hint:='Change a font size';
   Self.OpenDialog1.Title:='Open a page';
   Self.OpenDialog1.Filter:='A web pages|*.htm;*.html;*.mht';
-  Self.BrowserMenu.Items[0].Caption:='Page';
-  Self.BrowserMenu.Items[0].Items[0].Caption:='Open';
-  Self.BrowserMenu.Items[0].Items[1].Caption:='Save';
-  Self.BrowserMenu.Items[0].Items[2].Caption:='Print';
-  Self.BrowserMenu.Items[0].Items[2].Items[0].Caption:='Preview';
-  Self.BrowserMenu.Items[0].Items[2].Items[1].Caption:='The page settings';
-  Self.BrowserMenu.Items[0].Items[2].Items[2].Caption:='Print';
-  Self.BrowserMenu.Items[1].Caption:='Navigation';
-  Self.BrowserMenu.Items[1].Items[0].Caption:='Back';
-  Self.BrowserMenu.Items[1].Items[1].Caption:='Forward';
-  Self.BrowserMenu.Items[1].Items[2].Caption:='Stop';
-  Self.BrowserMenu.Items[1].Items[3].Caption:='Home';
-  Self.BrowserMenu.Items[1].Items[4].Caption:='Refresh';
-  Self.BrowserMenu.Items[2].Caption:='Search';
-  Self.BrowserMenu.Items[2].Items[0].Caption:='To Internet';
-  Self.BrowserMenu.Items[2].Items[1].Caption:='On the current page';
-  Self.BrowserMenu.Items[3].Caption:='Help';
-  Self.BrowserMenu.Items[3].Items[0].Caption:='Show';
+  Self.PageMenu.Caption:='Page';
+  Self.OpenMenuItem.Caption:='Open';
+  Self.SaveMenuItem.Caption:='Save';
+  Self.PrintMenu.Caption:='Print';
+  Self.PreviewMenuItem.Caption:='Preview';
+  Self.PagesettingsMenuItem.Caption:='The page settings';
+  Self.PrintMenuItem.Caption:='Print';
+  Self.NavigateMenu.Caption:='Navigation';
+  Self.BackMenuItem.Caption:='Back';
+  Self.NextMenuItem.Caption:='Forward';
+  Self.StopMenuItem.Caption:='Stop';
+  Self.HomeMenuItem.Caption:='Home';
+  Self.RefreshMenuItem.Caption:='Refresh';
+  Self.SearchMenu.Caption:='Search';
+  Self.InInternetMenuItem.Caption:='To Internet';
+  Self.OncurrentpageMenuItem.Caption:='On the current page';
+  Self.HelpMenu.Caption:='Help';
+  Self.ShowMenuItem.Caption:='Show';
 end;
 
 procedure TBrowserWindow.setup();
@@ -383,7 +383,7 @@ end;
 
 procedure TBrowserWindow.GoButtonClick(Sender: TObject);
 begin
-  Self.WebNavigator.Navigate(Self.URLBox.Text);
+  if Self.URLBox.Text<>'' then Self.WebNavigator.Navigate(Self.URLBox.Text);
   Self.WorkSpace.ActivePage.SetFocus();
 end;
 
@@ -468,14 +468,14 @@ procedure TBrowserWindow.URLBoxKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = Chr(VK_RETURN) then
   begin
-    Self.WebNavigator.Navigate(Self.URLBox.Text);
+    if Self.URLBox.Text<>'' then Self.WebNavigator.Navigate(Self.URLBox.Text);
   end;
 
 end;
 
 procedure TBrowserWindow.URLBoxSelect(Sender: TObject);
 begin
- Self.WebNavigator.Navigate(Self.URLBox.Text);
+ if Self.URLBox.Text<>'' then Self.WebNavigator.Navigate(Self.URLBox.Text);
 end;
 
 procedure TBrowserWindow.InInternetMenuItemClick(Sender: TObject);
