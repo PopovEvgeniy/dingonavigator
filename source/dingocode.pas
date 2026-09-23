@@ -87,6 +87,8 @@ type
     procedure RefreshMenuItemClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
    private
+    procedure do_action(const Action: Cardinal);
+    procedure set_zoom();
     procedure check_command_line();
     procedure prepare_browser();
     procedure window_setup();
@@ -111,17 +113,17 @@ implementation
 {$R *.dfm}
 {$R icons.res}
 
-procedure do_action(var Browser:TWebBrowser;const Action: Cardinal);
+procedure TBrowserWindow.do_action(const Action: Cardinal);
 begin
   try
-   Browser.ExecWB(Action,OLECMDEXECOPT_PROMPTUSER);
+   Self.WebNavigator.ExecWB(Action,OLECMDEXECOPT_PROMPTUSER);
   except
    On E:Exception do ShowMessage(E.Message);
   end;
 
 end;
 
-procedure set_zoom(var Browser:TWebBrowser);
+procedure TBrowserWindow.set_zoom();
 var Zoom: OleVariant;
 begin
   Inc(Scale,1);
@@ -130,9 +132,9 @@ begin
    Scale:=0;
   end;
   Zoom:=Scale;
-  if Browser.LocationURL<> '' then
+  if Self.WebNavigator.LocationURL<> '' then
   begin
-   Browser.ExecWB(OLECMDID_ZOOM,OLECMDEXECOPT_DODEFAULT,Zoom);
+   Self.WebNavigator.ExecWB(OLECMDID_ZOOM,OLECMDEXECOPT_DODEFAULT,Zoom);
   end;
 
 end;
@@ -157,7 +159,7 @@ end;
 procedure TBrowserWindow.window_setup();
 begin
   Self.Font.Assign(Screen.MenuFont);
-  Self.Caption:='Dingo Navigator 3.0.3';
+  Self.Caption:='Dingo Navigator 3.0.5';
   Application.Title:='Dingo Navigator';
 end;
 
@@ -330,13 +332,13 @@ end;
 
 procedure TBrowserWindow.SaveButtonClick(Sender: TObject);
 begin
-  do_action(Self.WebNavigator,OLECMDID_SAVEAS);
+  Self.do_action(OLECMDID_SAVEAS);
   Self.WorkSpace.ActivePage.SetFocus();
 end;
 
 procedure TBrowserWindow.PrintButtonClick(Sender: TObject);
 begin
-  do_action(Self.WebNavigator,OLECMDID_PRINT);
+  Self.do_action(OLECMDID_PRINT);
   Self.WorkSpace.ActivePage.SetFocus();
 end;
 
@@ -395,7 +397,7 @@ end;
 
 procedure TBrowserWindow.FontButtonClick(Sender: TObject);
 begin
-  set_zoom(Self.WebNavigator);
+  Self.set_zoom();
   Self.WorkSpace.ActivePage.SetFocus();
 end;
 
@@ -485,17 +487,17 @@ end;
 
 procedure TBrowserWindow.OncurrentpageMenuItemClick(Sender: TObject);
 begin
-  do_action(Self.WebNavigator,OLECMDID_FIND);
+  Self.do_action(OLECMDID_FIND);
 end;
 
 procedure TBrowserWindow.PreviewMenuItemClick(Sender: TObject);
 begin
-  do_action(Self.WebNavigator,OLECMDID_PRINTPREVIEW);
+  Self.do_action(OLECMDID_PRINTPREVIEW);
 end;
 
 procedure TBrowserWindow.PagesettingsMenuItemClick(Sender: TObject);
 begin
-  do_action(Self.WebNavigator,OLECMDID_PAGESETUP);
+  Self.do_action(OLECMDID_PAGESETUP);
 end;
 
 procedure TBrowserWindow.PrintMenuItemClick(Sender: TObject);
