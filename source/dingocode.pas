@@ -159,7 +159,7 @@ end;
 procedure TBrowserWindow.window_setup();
 begin
   Self.Font.Assign(Screen.MenuFont);
-  Self.Caption:='Dingo Navigator 3.0.6';
+  Self.Caption:='Dingo Navigator 3.0.7';
   Application.Title:='Dingo Navigator';
 end;
 
@@ -281,7 +281,7 @@ begin
   Self.HomeMenuItem.Caption:='Home';
   Self.RefreshMenuItem.Caption:='Refresh';
   Self.SearchMenu.Caption:='Search';
-  Self.InInternetMenuItem.Caption:='To Internet';
+  Self.InInternetMenuItem.Caption:='To the Internet';
   Self.OncurrentpageMenuItem.Caption:='On the current page';
   Self.HelpMenu.Caption:='Help';
   Self.ShowMenuItem.Caption:='Show';
@@ -306,12 +306,13 @@ end;
 procedure TBrowserWindow.FormResize(Sender: TObject);
 begin
  Self.GoButton.Left:=Self.ClientWidth-Self.GoButton.Width;
- Self.URLBox.Width:=Self.GoButton.Left-10;
+ Self.GoButton.Top:=Self.URLBox.Top;
+ Self.URLBox.Width:=Self.GoButton.Left-15;
  Self.ProgressIndicator.Top:=Self.ClientHeight-Self.ProgressIndicator.Height;
  Self.ProgressIndicator.Left:=0;
  Self.ProgressIndicator.Width:=Self.ClientWidth;
  Self.WorkSpace.Width:=Self.ClientWidth;
- Self.WorkSpace.Height:=Self.ProgressIndicator.Top-Self.ProgressIndicator.Height-Self.URLBox.Top-Self.ProgressIndicator.Height;
+ Self.WorkSpace.Height:=Self.ProgressIndicator.Top-Self.URLBox.Top-30;
  Self.WebNavigator.Width:=Self.WorkSpace.ClientWidth-15;
  Self.WebNavigator.Height:=Self.WorkSpace.ClientHeight-15;
 end;
@@ -434,7 +435,7 @@ end;
 procedure TBrowserWindow.WebNavigatorDocumentComplete(ASender: TObject;
   const pDisp: IDispatch; var URL: OleVariant);
 begin
-  ProgressIndicator.Position:=ProgressIndicator.Min;
+  Self.ProgressIndicator.Position:=ProgressIndicator.Min;
 end;
 
 procedure TBrowserWindow.WebNavigatorTitleChange(ASender: TObject; const Text: WideString);

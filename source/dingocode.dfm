@@ -2,7 +2,7 @@ object BrowserWindow: TBrowserWindow
   Left = 0
   Top = 0
   Caption = 'BrowserWindow'
-  ClientHeight = 592
+  ClientHeight = 612
   ClientWidth = 597
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -222,7 +222,7 @@ object BrowserWindow: TBrowserWindow
     object SearchMenu: TMenuItem
       Caption = 'Search'
       object InInternetMenuItem: TMenuItem
-        Caption = 'To Internet'
+        Caption = 'To the Internet'
         OnClick = InInternetMenuItemClick
       end
       object OncurrentpageMenuItem: TMenuItem
