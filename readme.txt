@@ -5,7 +5,7 @@
 System requirements.
 
 Windows 98 or higher.
-Internet connection.
+An Internet connection.
 
 The program description.
 

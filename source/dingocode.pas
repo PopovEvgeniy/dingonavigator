@@ -1,7 +1,7 @@
 ﻿unit dingocode;
 
 {
- This sofware was made by Popov Evgeniy Alekseyevich.
+ This software was made by Popov Evgeniy Alekseyevich.
  It is distributed under the GNU GENERAL PUBLIC LICENSE (Version 2 or higher).
 }
 
@@ -159,7 +159,7 @@ end;
 procedure TBrowserWindow.window_setup();
 begin
   Self.Font.Assign(Screen.MenuFont);
-  Self.Caption:='Dingo Navigator 3.0.5';
+  Self.Caption:='Dingo Navigator 3.0.6';
   Application.Title:='Dingo Navigator';
 end;
 
@@ -257,16 +257,16 @@ begin
   Self.OpenButton.Hint:='Load the page from a file';
   Self.SaveButton.Hint:='Save the page to a file';
   Self.PrintButton.Hint:='Print the page';
-  Self.BackButton.Hint:='Go to the preversion page';
+  Self.BackButton.Hint:='Go to the previous page';
   Self.NextButton.Hint:='Go to the next page';
   Self.StopButton.Hint:='Stop loading the page';
   Self.HomeButton.Hint:='Go to the home page';
-  Self.HelpButton.Hint:='Show a help';
+  Self.HelpButton.Hint:='Show the help page';
   Self.GoButton.Hint:='Go';
   Self.SearchButton.Hint:='Go to the default search service';
   Self.FontButton.Hint:='Change a font size';
   Self.OpenDialog1.Title:='Open a page';
-  Self.OpenDialog1.Filter:='A web pages|*.htm;*.html;*.mht';
+  Self.OpenDialog1.Filter:='Web pages|*.htm;*.html;*.mht';
   Self.PageMenu.Caption:='Page';
   Self.OpenMenuItem.Caption:='Open';
   Self.SaveMenuItem.Caption:='Save';
